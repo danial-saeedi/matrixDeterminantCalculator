@@ -30,6 +30,7 @@ vector<vector<int>> adjugateMatrix(vector<vector<int>> matrix,int i,int j)
 }
 int determinant(vector<vector<int>> matrix)
 {
+	//Base Case
 	if(matrix.size() == 1)
 	{
 		return matrix[0][0];
@@ -40,6 +41,7 @@ int determinant(vector<vector<int>> matrix)
 		return matrix[0][0] * matrix[1][1] - matrix[0][1]*matrix[1][0];
 	}
 
+	//Recursive Case
 	int i = 0;
 	int det = 0;
 
@@ -53,6 +55,7 @@ int determinant(vector<vector<int>> matrix)
 		vector<vector<int>> adjugate;
 
 		adjugate = adjugateMatrix(matrix,0,i);
+
 		det += sign * matrix[0][i] * determinant(adjugate);
 
 		i++;
@@ -63,6 +66,7 @@ int determinant(vector<vector<int>> matrix)
 
 int main()
 {
+
 	ifstream f;
 	f.open("matrix.txt");
 
